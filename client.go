@@ -83,6 +83,7 @@ func (h *connectionHandler) newConnection(path string) error {
 	c.conn = conn
 	ch, err := conn.Channel()
 	if err != nil {
+		_ = conn.Close()
 		return err
 	}
 	c.ch = ch

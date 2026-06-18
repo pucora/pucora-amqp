@@ -53,6 +53,7 @@ func (f backendFactory) initConsumer(ctx context.Context, remote *config.Backend
 	if err != nil {
 		f.logger.Debug(logPrefix, err.Error())
 	}
+	deliveries := &deliverySource{ch: msgs}
 
 	f.logger.Debug(logPrefix, "Consumer attached")
 	go func() {
@@ -65,17 +66,16 @@ func (f backendFactory) initConsumer(ctx context.Context, remote *config.Backend
 		select {
 		case <-ctx.Done():
 			return nil, ctx.Err()
-		case msg, ok := <-msgs:
+		case msg, ok := <-deliveries.get():
 			if !ok {
-				// executed here instead of in the connection manager `connect` method
-				// to avoid launching too many goroutines that will do nothing because
-				// the atomic.Bool will be locked
 				if connHandler.reconnecting.CompareAndSwap(false, true) {
 					go func() {
-						msgs, err = connHandler.newConsumer(dns, cfg, cfg.MaxRetries, cfg.Backoff)
-						if err != nil {
-							f.logger.Debug(logPrefix, err.Error())
+						newMsgs, reconnectErr := connHandler.newConsumer(dns, cfg, cfg.MaxRetries, cfg.Backoff)
+						if reconnectErr != nil {
+							f.logger.Debug(logPrefix, reconnectErr.Error())
+							return
 						}
+						deliveries.set(newMsgs)
 					}()
 				}
 				return nil, fmt.Errorf("connection not available, trying to reconnect")
