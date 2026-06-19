@@ -5,7 +5,7 @@ name = "go"
 enabled = true
 
   [analyzers.meta]
-  import_root = "github.com/velonetics/flatmap"
+  import_root = "github.com/pucora/flatmap"
 
 [[transformers]]
 name = "gofmt"

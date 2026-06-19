@@ -11,11 +11,11 @@ import (
 
 	amqp "github.com/rabbitmq/amqp091-go"
 
-	"github.com/velonetics/lura/v2/config"
-	"github.com/velonetics/lura/v2/proxy"
+	"github.com/pucora/lura/v2/config"
+	"github.com/pucora/lura/v2/proxy"
 )
 
-const consumerNamespace = "github.com/velonetics/velonetics-amqp/consume"
+const consumerNamespace = "github.com/pucora/velonetics-amqp/consume"
 
 var (
 	errNoConsumerCfgDefined = errors.New("no amqp consumer defined")

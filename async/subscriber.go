@@ -12,11 +12,11 @@ import (
 
 	amqp "github.com/rabbitmq/amqp091-go"
 
-	ratelimit "github.com/velonetics/velonetics-ratelimit/v3"
+	ratelimit "github.com/pucora/velonetics-ratelimit/v3"
 
-	"github.com/velonetics/lura/v2/config"
-	"github.com/velonetics/lura/v2/logging"
-	"github.com/velonetics/lura/v2/proxy"
+	"github.com/pucora/lura/v2/config"
+	"github.com/pucora/lura/v2/logging"
+	"github.com/pucora/lura/v2/proxy"
 )
 
 // Subscriber defines the configuration of a single subscriber/consumer to be initialized
@@ -34,7 +34,7 @@ type Subscriber struct {
 	MaxRate     float64
 }
 
-const consumerNamespace = "github.com/velonetics/velonetics-amqp/agent"
+const consumerNamespace = "github.com/pucora/velonetics-amqp/agent"
 
 type Options struct {
 	Logger     logging.Logger
@@ -293,7 +293,7 @@ func initConsumer(opts consumerOptions, _ logging.Logger) (msgs <-chan amqp.Deli
 
 	msgs, err = ch.Consume(
 		q.Name,         // queue
-		"velonetics",      // consumer
+		"pucora",      // consumer
 		opts.AutoACK,   // auto-ack
 		opts.Exclusive, // exclusive
 		opts.NoLocal,   // no-local

@@ -1,2 +1,2 @@
 # velonetics-amqp
-AMQP compatible backend for the Velonetics framework
+AMQP compatible backend for the Pucora framework

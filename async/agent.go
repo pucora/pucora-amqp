@@ -6,8 +6,8 @@ import (
 	"fmt"
 	"time"
 
-	"github.com/velonetics/lura/v2/async"
-	"github.com/velonetics/lura/v2/logging"
+	"github.com/pucora/lura/v2/async"
+	"github.com/pucora/lura/v2/logging"
 )
 
 const minExecutionTime = 5 * time.Second

@@ -12,11 +12,11 @@ import (
 
 	amqp "github.com/rabbitmq/amqp091-go"
 
-	"github.com/velonetics/lura/v2/config"
-	"github.com/velonetics/lura/v2/proxy"
+	"github.com/pucora/lura/v2/config"
+	"github.com/pucora/lura/v2/proxy"
 )
 
-const producerNamespace = "github.com/velonetics/velonetics-amqp/produce"
+const producerNamespace = "github.com/pucora/velonetics-amqp/produce"
 
 var errNoProducerCfgDefined = errors.New("no amqp producer defined")
 
