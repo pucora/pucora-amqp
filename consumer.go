@@ -15,7 +15,7 @@ import (
 	"github.com/pucora/lura/v2/proxy"
 )
 
-const consumerNamespace = "github.com/pucora/velonetics-amqp/consume"
+const consumerNamespace = "github.com/pucora/pucora-amqp/consume"
 
 var (
 	errNoConsumerCfgDefined = errors.New("no amqp consumer defined")

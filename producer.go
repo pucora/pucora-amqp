@@ -16,7 +16,7 @@ import (
 	"github.com/pucora/lura/v2/proxy"
 )
 
-const producerNamespace = "github.com/pucora/velonetics-amqp/produce"
+const producerNamespace = "github.com/pucora/pucora-amqp/produce"
 
 var errNoProducerCfgDefined = errors.New("no amqp producer defined")
 

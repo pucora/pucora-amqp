@@ -1,11 +1,11 @@
-module github.com/pucora/velonetics-amqp/v2
+module github.com/pucora/pucora-amqp/v2
 
 go 1.25.0
 
 require (
 	github.com/rabbitmq/amqp091-go v1.10.0
 	github.com/pucora/lura/v2 v2.0.0
-	github.com/pucora/velonetics-ratelimit/v3 v3.0.0
+	github.com/pucora/pucora-ratelimit/v3 v3.0.0
 )
 
 require (

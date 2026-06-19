@@ -1,6 +1,6 @@
 services:
   amqp:
-    container_name: test_velonetics_amqp
+    container_name: test_pucora_amqp
     image: rabbitmq:3-management
     hostname: amqp
     ports: 

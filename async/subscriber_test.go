@@ -96,7 +96,7 @@ func TestNotRateLimited(t *testing.T) {
 	s := httptest.NewServer(h)
 
 	host := "amqp://guest:guest@localhost:5672/"
-	exchange := "velonetics-testing"
+	exchange := "pucora-testing"
 
 	cfg := Subscriber{
 		Topic: "#",
@@ -112,7 +112,7 @@ func TestNotRateLimited(t *testing.T) {
 		Timeout: time.Second,
 		ExtraConfig: config.ExtraConfig{
 			consumerNamespace: map[string]interface{}{
-				"name":           "velonetics-test",
+				"name":           "pucora-test",
 				"host":           host,
 				"exchange":       exchange,
 				"delete":         true,
@@ -203,7 +203,7 @@ func TestRateLimited(t *testing.T) {
 	s := httptest.NewServer(h)
 
 	host := "amqp://guest:guest@localhost:5672/"
-	exchange := "velonetics-testing"
+	exchange := "pucora-testing"
 
 	cfg := Subscriber{
 		Topic: "#",
@@ -219,7 +219,7 @@ func TestRateLimited(t *testing.T) {
 		Timeout: time.Second,
 		ExtraConfig: config.ExtraConfig{
 			consumerNamespace: map[string]interface{}{
-				"name":           "velonetics-test",
+				"name":           "pucora-test",
 				"host":           host,
 				"exchange":       exchange,
 				"delete":         true,

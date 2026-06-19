@@ -12,7 +12,7 @@ import (
 
 	amqp "github.com/rabbitmq/amqp091-go"
 
-	ratelimit "github.com/pucora/velonetics-ratelimit/v3"
+	ratelimit "github.com/pucora/pucora-ratelimit/v3"
 
 	"github.com/pucora/lura/v2/config"
 	"github.com/pucora/lura/v2/logging"
@@ -34,7 +34,7 @@ type Subscriber struct {
 	MaxRate     float64
 }
 
-const consumerNamespace = "github.com/pucora/velonetics-amqp/agent"
+const consumerNamespace = "github.com/pucora/pucora-amqp/agent"
 
 type Options struct {
 	Logger     logging.Logger
